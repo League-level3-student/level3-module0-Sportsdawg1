@@ -6,9 +6,9 @@ public class MoreArrayFun {
 	//1. Create a main method to test the other methods you write.
 	public static void main(String[] args) {
 		String [] testArr = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
-		printString(testArr);
-		printStringReverse(testArr);
-		printOtherString(testArr);
+		//printString(testArr);
+		//printStringReverse(testArr);
+		//printOtherString(testArr);
 		printRandomString(testArr);
 	}
 	
@@ -42,7 +42,7 @@ public class MoreArrayFun {
 	
 	//5. Write a method that takes an array of Strings and prints all the Strings in the array
 	//   in a completely random order. Almost every run of the program should result in a different order.
-	static void printRandomString (String [] s) {
+	/*static void printRandomString (String [] s) {
 		Random r = new Random(s.length);
 		int nextIndex;
 		int [] indexUsed = new int [s.length];
@@ -59,8 +59,20 @@ public class MoreArrayFun {
 			}
 			System.out.println(s[nextIndex]);
 		}
-	}
+	}*/
+	static void printRandomString (String [] s) {
+		String index;
+		Random r = new Random(s.length);
 		
+		for (int i = 0; i < s.length; i++) {
+			int random = r.nextInt(s.length);
+			index = s[random];
+			s[random] = s[i];
+			s[i] = index;
+		}
+		for (int i = 0; i < s.length; i++) {
+			System.out.println(s[i]);
+		}
+	}
 }
 	
-
